@@ -1,7 +1,7 @@
-Typings for ForeverHD's ZonePlus
+# Typings for ForeverHD's ZonePlus
 https://1foreverhd.github.io/ZonePlus/
 
-##Example:
+## Example:
 ```ts
 import { Zone } from "@rbxts/zone-plus";
 import { CollectionService } from "@rbxts/services";
@@ -21,5 +21,5 @@ for (const zonePart of CollectionService.GetTagged("Zone")) {
 }
 ```
 
-##TODO:
+## TODO:
 - Create typings for Accuracy custom enum for zone.accuracy and zone.setAccuracy(accuracy)
