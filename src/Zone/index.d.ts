@@ -1,5 +1,19 @@
 import Signal from "./Signal";
 
+interface EnumChild<N extends string = string, V extends number = number, P = unknown> {
+	name: N;
+	value: V;
+	property: P;
+}
+
+type CustomEnum<Enums extends EnumChild> = {
+	[N in Enums["name"]]: (Enums & { name: N })["value"];
+};
+
+type Accuracy = CustomEnum<
+	EnumChild<"Low", 1, 1.0> | EnumChild<"Medium", 2, 0.5> | EnumChild<"High", 3, 0.1> | EnumChild<"Precise", 4, 0.0>
+>;
+
 interface Zone {
 	// Methods
 	findLocalPlayer(): boolean;
@@ -12,9 +26,13 @@ interface Zone {
 	 * It then returns this Vector3 and a table array of group parts the point falls within.
 	 */
 	getRandomPoint(): [Vector3, BasePart[]];
-
-	// TODO: setAccuracy(enumIdOrName)
-
+	/**
+	 * Sets the frequency of checks based upon the Accuracy Enum.
+	 */
+	setAccuracy(enumIdOrName: Accuracy[keyof Accuracy] | keyof Accuracy): void;
+	/**
+	 * Disconnects all connections within the zone.
+	 */
 	destroy(): void;
 
 	// Events
@@ -27,7 +45,7 @@ interface Zone {
 	/**
 	 * To change accuracy it's recommended you use setAccuracy.
 	 */
-	// TODO: accuracy
+	readonly accuracy: Accuracy[keyof Accuracy];
 	/**
 	 * When true, the zone will update when its group parts change size or position, or when a descendant group part is added or removed from the group.
 	 */
