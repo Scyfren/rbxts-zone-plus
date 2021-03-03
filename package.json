@@ -1,13 +1,24 @@
 {
   "name": "@rbxts/zone-plus",
   "version": "1.0.0",
-  "description": "",
+  "description": "Typings for ForeverHD's ZonePlus v2 module",
   "main": "out/init.lua",
   "scripts": {
     "prepublishOnly": "rbxtsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "roblox",
+    "roblox-ts",
+    "zone",
+    "region",
+    "detection"
+  ],
+  "homepage": "https://github.com/Scyfren/rbxts-zone-plus/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Scyfren/rbxts-zone-plus"
+	},
+  "author": "Scyfren",
   "license": "ISC",
   "publishConfig": {
     "access": "public"
@@ -27,5 +38,8 @@
   },
   "dependencies": {
     "@rbxts/rotatedregion3": "^1.0.8"
-  }
+  },
+  "files": [
+    "out"
+  ]
 }

@@ -1,8 +1,10 @@
-# Typings for ForeverHD's ZonePlus v2
-https://1foreverhd.github.io/ZonePlus/
+# @rbxts/zone-plus
+Typings for [ForeverHD's ZonePlus v2 module](https://1foreverhd.github.io/ZonePlus/)
 
-## Example:
-NOTE: This package is not published yet, `@rbxts/zone-plus` is owned by someone else and is at a much older version!
+# Installation
+`npm i @rbxts/zone-plus`
+
+# Example Usage
 ```ts
 import { Zone } from "@rbxts/zone-plus";
 import { CollectionService } from "@rbxts/services";
