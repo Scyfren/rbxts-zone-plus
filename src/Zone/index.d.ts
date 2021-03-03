@@ -37,9 +37,11 @@ interface Zone {
 
 	// Events
 	localPlayerEntered: Signal<() => void>;
+	localPlayerExited: Signal<() => void>;
 	playerEntered: Signal<(player: Player) => void>;
 	playerExited: Signal<(player: Player) => void>;
 	partEntered: Signal<(part: BasePart) => void>;
+	partExited: Signal<(part: BasePart) => void>;
 
 	// Properties
 	/**
