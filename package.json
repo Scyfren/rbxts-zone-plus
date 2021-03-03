@@ -2,7 +2,7 @@
   "name": "@rbxts/zone-plus",
   "version": "2.0.0",
   "description": "Typings for ForeverHD's ZonePlus v2 module",
-  "main": "out/init.lua",
+  "main": "src/init.lua",
   "scripts": {
     "prepublishOnly": "rbxtsc"
   },
@@ -23,7 +23,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "types": "out/index.d.ts",
+  "types": "src/index.d.ts",
   "devDependencies": {
     "@rbxts/compiler-types": "^1.0.0-beta.16.1",
     "@rbxts/types": "^1.0.459",
@@ -38,6 +38,6 @@
   },
   "dependencies": {},
   "files": [
-    "out"
+    "src"
   ]
 }
