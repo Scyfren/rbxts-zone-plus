@@ -14,10 +14,10 @@
     "detection"
   ],
   "homepage": "https://github.com/Scyfren/rbxts-zone-plus/blob/master/README.md",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Scyfren/rbxts-zone-plus"
-	},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Scyfren/rbxts-zone-plus"
+  },
   "author": "Scyfren",
   "license": "ISC",
   "publishConfig": {
@@ -36,9 +36,7 @@
     "prettier": "^2.2.1",
     "typescript": "^4.2.2"
   },
-  "dependencies": {
-    "@rbxts/rotatedregion3": "^1.0.8"
-  },
+  "dependencies": {},
   "files": [
     "out"
   ]
