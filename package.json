@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/zone-plus",
-  "version": "2.0.0",
+  "version": "2.2.3",
   "description": "Typings for ForeverHD's ZonePlus v2 module",
   "main": "src/init.lua",
   "scripts": {

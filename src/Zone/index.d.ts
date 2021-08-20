@@ -14,6 +14,8 @@ type Accuracy = CustomEnum<
 	EnumChild<"Low", 1, 1.0> | EnumChild<"Medium", 2, 0.5> | EnumChild<"High", 3, 0.1> | EnumChild<"Precise", 4, 0.0>
 >;
 
+type Detection = CustomEnum<EnumChild<"Automatic", 1> | EnumChild<"Centre", 2> | EnumChild<"WholeBody", 3>>;
+
 interface Zone {
 	// Methods
 	findLocalPlayer(): boolean;
@@ -30,6 +32,10 @@ interface Zone {
 	 * Sets the frequency of checks based upon the Accuracy Enum.
 	 */
 	setAccuracy(enumIdOrName: Accuracy[keyof Accuracy] | keyof Accuracy): void;
+	/**
+	 * Sets the precision of checks based upon the [Detection Enum]. Defaults to 'Automatic'.
+	 */
+	setDetection(enumIdOrName: Detection[keyof Detection] | keyof Detection): void;
 	/**
 	 * Disconnects all connections within the zone.
 	 */
@@ -48,6 +54,14 @@ interface Zone {
 	 * To change accuracy it's recommended you use setAccuracy.
 	 */
 	readonly accuracy: Accuracy[keyof Accuracy];
+	/**
+	 * To change both detection types use [setDetection] otherwise to set individually do:
+	 */
+	enterDetection: Detection[keyof Detection];
+	/**
+	 * To change both detection types use [setDetection] otherwise to set individually do:
+	 */
+	exitDetection: Detection[keyof Detection];
 	/**
 	 * When true, the zone will update when its group parts change size or position, or when a descendant group part is added or removed from the group.
 	 */
