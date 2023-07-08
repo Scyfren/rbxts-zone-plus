@@ -1,5 +1,5 @@
 # @rbxts/zone-plus
-Typings for [ForeverHD's ZonePlus v2 module](https://1foreverhd.github.io/ZonePlus/)
+Typings for [ForeverHD's ZonePlus v3 module](https://1foreverhd.github.io/ZonePlus/)
 
 # Installation
 `npm i @rbxts/zone-plus`
