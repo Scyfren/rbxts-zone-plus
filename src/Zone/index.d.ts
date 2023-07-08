@@ -117,7 +117,7 @@ interface ZoneConstructor {
 	/**
 	 * Constructs a zone from the given CFrame and Size. Underneath the hood, it's creating a part (or multiple parts if any size coordinage exceeds 2024), parenting this to a folder (the container), constructing a zone with this container, calling :relocate() on that zone (which parents it outside of workspace), then finally returning the zone.
 	 */
-	fromRegion: (cframe: CFrame, size: number) => Zone;
+	fromRegion: (cframe: CFrame, size: Vector3) => Zone;
 }
 
 declare const Zone: ZoneConstructor;
