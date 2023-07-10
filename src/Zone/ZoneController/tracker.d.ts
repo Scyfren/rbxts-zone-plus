@@ -19,17 +19,17 @@ interface Tracker {
 	parts: Array<BasePart>;
 	partToItem: Map<BasePart, BasePart | Model>;
 	items: Array<BasePart | Model>;
-	whitelistParams: OverlapParams;
+	whitelistParams?: OverlapParams;
 	characters: Set<Model>;
 	baseParts: Set<BasePart>;
 	exitDetections: Map<Model | BasePart, Detection[keyof Detection]>;
 
 	getCombinedTotalVolumes: () => number;
-	getCharacterSize: (character: Model) => LuaTuple<[Vector3, CFrame]>;
+	getCharacterSize: (character: Model) => LuaTuple<[Vector3?, CFrame?]>;
 }
 
 interface TrackerConstructor {
-	new (name?: "player" | "item"): Tracker;
+	new (name: "player" | "item"): Tracker;
 }
 
 declare const Tracker: TrackerConstructor;

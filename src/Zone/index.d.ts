@@ -1,5 +1,4 @@
 import Signal from "./Signal";
-import { Accuracy, Container, Detection } from "./types";
 
 interface Zone {
 	// Methods
