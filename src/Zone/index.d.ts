@@ -1,26 +1,12 @@
 import Signal from "./Signal";
-
-interface EnumChild<N extends string = string, V extends number = number, P = unknown> {
-	name: N;
-	value: V;
-	property: P;
-}
-
-type CustomEnum<Enums extends EnumChild> = {
-	[N in Enums["name"]]: (Enums & { name: N })["value"];
-};
-
-type Accuracy = CustomEnum<
-	EnumChild<"Low", 1, 1.0> | EnumChild<"Medium", 2, 0.5> | EnumChild<"High", 3, 0.1> | EnumChild<"Precise", 4, 0.0>
->;
-
-type Detection = CustomEnum<EnumChild<"Automatic", 1> | EnumChild<"Centre", 2> | EnumChild<"WholeBody", 3>>;
+import { Accuracy, Container, Detection } from "./types";
 
 interface Zone {
 	// Methods
 	findLocalPlayer(): boolean;
 	findPlayer(player: Player): boolean;
 	findPart(part: BasePart): LuaTuple<[boolean, BasePart[]]>;
+	getCheckerPart(): BasePart;
 	findItem(characterOrBasePart: BasePart | Model): LuaTuple<[boolean, BasePart[]]>;
 	findPoint(point: Vector3 | CFrame): LuaTuple<[boolean, BasePart[]]>;
 	getPlayers(): Player[];
@@ -45,6 +31,7 @@ interface Zone {
 	 */
 	bindToGroup(settingsGroupName: string): void;
 	unbindFromGroup(): void;
+	setAccuracy(accuracy: Accuracy[keyof Accuracy]): void;
 	/**
 	 * Sets the precision of checks based upon the [Detection Enum]. Defaults to `Automatic`.
 	 */
@@ -63,6 +50,17 @@ interface Zone {
 	 * ```
 	 */
 	onItemEnter(characterOrBasePart: Model | BasePart, callback: () => void): void;
+	/**
+	 * Tracks the item until it has exited the zone, then calls the given function. If the item is already outside the zone, the given function is called right away.
+	 *
+	 * ```lua
+	 * local item = character:FindFirstChild("HumanoidRootPart")
+	 * zone:onItemExit(item, function()
+	 *     print("The item has exited the zone!"))
+	 * end)
+	 * ```
+	 */
+	onItemExit(characterOrBasePart: Model | BasePart, callback: () => void): void;
 	/**
 	 * Disconnects all connections within the zone.
 	 */
@@ -113,7 +111,7 @@ interface ZoneConstructor {
 	 * A container is used the define the boundaries of the zone. It can be any non-basepart instance (such as a Model, Folder, etc) that contain descendant baseparts. Alternatively a container can be a singular basepart instance, or a table containing an array of baseparts.
 	 * @param container A model, folder, basepart or array of baseparts.
 	 */
-	new (container: Model | Folder | BasePart | Array<BasePart>): Zone;
+	new (container: Container): Zone;
 	/**
 	 * Constructs a zone from the given CFrame and Size. Underneath the hood, it's creating a part (or multiple parts if any size coordinage exceeds 2024), parenting this to a folder (the container), constructing a zone with this container, calling :relocate() on that zone (which parents it outside of workspace), then finally returning the zone.
 	 */

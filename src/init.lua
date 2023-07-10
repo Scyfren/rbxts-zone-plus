@@ -1,7 +1,9 @@
+local Tracker = require(script.Zone.ZoneController.Tracker)
 local Zone = require(script.Zone)
 local ZoneController = require(script.Zone.ZoneController)
 
 return {
-    Zone = Zone,
-    ZoneController = ZoneController
+	Tracker = Tracker,
+	Zone = Zone,
+	ZoneController = ZoneController
 }
