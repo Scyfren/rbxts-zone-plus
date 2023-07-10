@@ -1,8 +1,9 @@
 {
   "name": "@rbxts/zone-plus",
-  "version": "2.2.3",
-  "description": "Typings for ForeverHD's ZonePlus v2 module",
+  "version": "3.2.0",
+  "description": "Typings for ForeverHD's ZonePlus v3 module",
   "main": "src/init.lua",
+  "types": "src/index.d.ts",
   "scripts": {
     "prepublishOnly": "rbxtsc"
   },
@@ -23,20 +24,19 @@
   "publishConfig": {
     "access": "public"
   },
-  "types": "src/index.d.ts",
   "devDependencies": {
-    "@rbxts/compiler-types": "^1.0.0-beta.16.1",
-    "@rbxts/types": "^1.0.459",
-    "@typescript-eslint/eslint-plugin": "^4.16.1",
-    "@typescript-eslint/parser": "^4.16.1",
-    "eslint": "^7.21.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-roblox-ts": "0.0.24",
-    "prettier": "^2.2.1",
-    "typescript": "^4.2.2"
+    "@rbxts/compiler-types": "^2.1.1-types.0",
+    "@rbxts/types": "^1.0.704",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0-alpha.1",
+    "eslint-plugin-roblox-ts": "^0.0.35",
+    "prettier": "^3.0.0",
+    "roblox-ts": "^2.1.1",
+    "typescript": "^4.9.4"
   },
-  "dependencies": {},
   "files": [
     "src"
   ]
